@@ -1,0 +1,98 @@
+{
+  "_comment": "Per-function literature and model queries for the global health gap map sweep. Europe PMC query syntax. CHW is the shared cadre filter.",
+  "chw": "(\"community health worker*\" OR \"community health volunteer*\" OR \"lay health worker*\" OR \"ASHA worker*\" OR \"accredited social health activist*\" OR \"health extension worker*\" OR \"frontline health worker*\")",
+  "lmic": "(\"low-income\" OR \"middle-income\" OR LMIC OR \"low-resource\" OR \"resource-limited\" OR Africa OR India OR Asia OR \"Latin America\")",
+  "functions": {
+    "2.2.A1": {
+      "name": "Local-language voice-to-form for health workers",
+      "queries": [
+        "(\"speech recognition\" OR \"voice input\" OR \"speech-to-text\" OR \"voice-based data\") AND {chw}",
+        "(\"automatic speech recognition\" OR \"speech-to-text\" OR \"voice input\") AND (\"data collection\" OR \"data entry\" OR documentation) AND {lmic}"
+      ]
+    },
+    "2.5.4": {
+      "name": "Transmit non-routine health event alerts to health workers",
+      "queries": [
+        "(alert OR notification OR \"early warning\") AND (SMS OR mobile OR WhatsApp) AND {chw} AND (outbreak OR emergency)",
+        "(\"health worker\" AND (alert OR broadcast) AND (outbreak OR epidemic) AND mobile AND {lmic})"
+      ]
+    },
+    "2.7.2": {
+      "name": "Schedule health worker's activities (incl. CHW household-visit prioritization)",
+      "queries": [
+        "(\"risk prediction\" OR \"machine learning\" OR prioriti*) AND (\"household visit*\" OR \"home visit*\") AND {chw}",
+        "(\"route optimization\" OR microplanning OR \"workload\") AND {chw} AND (algorithm OR digital)"
+      ]
+    },
+    "3.1.A1": {
+      "name": "Supervisor copilot and supportive supervision analytics",
+      "queries": [
+        "(supervision OR supervisor*) AND (dashboard OR analytics OR \"machine learning\" OR \"performance data\") AND {chw}",
+        "(\"supportive supervision\" AND (digital OR mobile OR mHealth) AND {chw})"
+      ]
+    },
+    "2.3.A1": {
+      "name": "Guideline-grounded protocol Q&A",
+      "queries": [
+        "(chatbot OR \"large language model\" OR LLM OR \"conversational agent\" OR RAG) AND (guideline* OR protocol*) AND (\"health worker*\" OR nurse* OR midwi*) AND {lmic}"
+      ]
+    },
+    "2.3.A3": {
+      "name": "Treat-or-refer decision support at the household",
+      "queries": [
+        "(IMCI OR iCCM OR \"integrated community case management\") AND (digital OR electronic OR mobile OR algorithm)"
+      ]
+    },
+    "1.6.A2": {
+      "name": "Local-language voice interface for clients",
+      "queries": [
+        "(IVR OR \"interactive voice response\" OR \"voice assistant\" OR \"voice chatbot\") AND health AND {lmic}"
+      ]
+    },
+    "2.2.A2": {
+      "name": "Digitizing paper registers and checking data quality at capture",
+      "queries": [
+        "(OCR OR \"optical character recognition\" OR \"handwriting recognition\" OR \"paper-based\" digiti*) AND (register* OR form*) AND health AND {lmic}"
+      ]
+    }
+  },
+  "huggingface": {
+    "_comment": "Enabling layer (5.1). Language codes for priority LMIC languages; each is a Hub language filter.",
+    "languages": [
+      "sw",
+      "ha",
+      "yo",
+      "ig",
+      "am",
+      "zu",
+      "xh",
+      "rw",
+      "lg",
+      "wo",
+      "ff",
+      "so",
+      "om",
+      "ti",
+      "hi",
+      "bn",
+      "ta",
+      "te",
+      "mr",
+      "ur",
+      "ne",
+      "ar",
+      "fr",
+      "pt"
+    ],
+    "pipelines": [
+      "automatic-speech-recognition",
+      "text-to-speech",
+      "translation"
+    ],
+    "medical_search": [
+      "medical",
+      "clinical",
+      "health"
+    ]
+  }
+}
